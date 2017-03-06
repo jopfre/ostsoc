@@ -1,10 +1,3 @@
-//try https://github.com/vote539/socketio-file-upload for upload and progress bar
-//syntax highlighting for console  http://jsfiddle.net/KJQ9K/554/
-//add delteing when deleteing buckets
-//clear metainpt form after upload
-//display more than one metadata
-//fix object not being selected on creation
-
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
