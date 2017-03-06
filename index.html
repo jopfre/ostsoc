@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ost</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>S3/COS OST</h1>
+  <section id="main">
+    <div class="grid">
+
+      <section id="buckets">
+        <h2>Buckets</h2>
+        <div class="main-table-wrapper">
+          <table id="bucket-table" class="main-table">
+            <tr id="bucket-table-headings">
+              <th>Name</th>
+              <!-- <th>Creation Date</th> -->
+              <th></th>
+            </tr>
+          </table>
+        </div>
+        <button id="create-bucket-open-form-button">Create Bucket</button>
+        <form id="create-bucket-form" class="hidden" action="#">
+          <h3>Create Bucket</h3>
+          <label for="create-bucket-name-input">
+            <h4>Bucket Name</h4>
+            <input id="create-bucket-name-input" name="bucket" type="text">
+          </label>
+          <input id="create-bucket-submit-button" type="submit" value="Create Bucket">
+        </form>
+      </section>
+
+      <section id="objects">
+        <h2>Objects<span id="objects-in-bucket"></span></h2>
+        <div class="main-table-wrapper">
+          <table id="object-table" class="main-table">
+            <tr id="object-table-headings">
+              <th>Name</th>
+              <!-- <th>Last Modified</th> -->
+              <th></th>
+            </tr>
+          </table>
+        </div>
+        <button id="upload-object-open-form-button">Upload Object</button>
+        <form action="http://localhost/uploadObject" id="upload-object-form" class="hidden" method="post" enctype="multipart/form-data">
+          <h3>Upload Object</h3>
+          <label for="fileChooser" id="file-chooser-label">Choose File</label>
+          <span id="file-selected"></span>
+          <input type="file" name="fileChooser" id="fileChooser" multiple/>
+          <div id="upload-object-metadata-inputs">
+            <h4>Metadata</h4>
+            <table>
+              <tbody>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                </tr>
+                <tr class="metadata-inputs">
+                  <td><input name="metadataKey1" class="key" type="text"></td>
+                  <td><input name="metadataValue1" class="value" type="text"></td>
+                </tr>
+                <tr class="metadata-inputs">
+                  <td><input name="metadataKey2" class="key" type="text"></td>
+                  <td><input name="metadataValue2" class="value" type="text"></td>
+                </tr>                                                                  
+              </tbody>
+            </table>
+          </div>
+          <input type="submit" value="Upload Object" id="upload-object-button">
+        </form>
+      </section>
+
+      <section id="metadata">
+        <h2>Metadata</h2>
+        <div class="main-table-wrapper">
+          <table id="metadata-table" class="main-table">
+            <tr id="metadata-table-headings">
+              <th>Key</th>
+              <th>Value</th>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+    </div>
+    <!-- <p id="loading">Loading...</p> -->
+  </section>
+
+  <section id="console">
+    <h2>Console</h2>
+    <div id="console-display"></div>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.min.js"></script>
+</body>
+</html>
